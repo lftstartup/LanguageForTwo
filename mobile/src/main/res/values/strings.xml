@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Language For Two</string>
+    <string-array name="actions">
+        <item>Berger</item>
+        <item>Noorko</item>
+        <item>Globi</item>
+
+
+    </string-array>
+</resources>
