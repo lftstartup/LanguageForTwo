@@ -13,41 +13,55 @@ import android.os.AsyncTask;
 
 public class SendTask extends AsyncTask<String, String, String>
 {
+
     protected String doInBackground(String... args)
     {
         String username = args[0];
         String password = args[1];
         try {
             System.out.println("first line");
-            Socket socket = new Socket("127.0.0.1", 8888);
+            Socket socket = new Socket("127.0.0.1", 12345);
             System.out.println("socket creating");
             DataOutputStream dout = new DataOutputStream(socket.getOutputStream());
             DataInputStream din = new DataInputStream(socket.getInputStream());
 
+            try {
+                dout.writeUTF(username + "," + password);
+                dout.flush();
+                String str = din.readUTF();//in.readLine();
 
-            dout.writeUTF(username + "," + password);
-            dout.flush();
+                if (str.equals("confirmed")) {
 
 
-            String str = din.readUTF();//in.readLine();
+                    return "confirmed";
+                } else {
 
-            if (str.equals("confirmed")) {
-                dout.close();
-                din.close();
-                socket.close();
-
-                return "confirmed";
-            } else {
-                dout.close();
-                din.close();
-                socket.close();
-                return "not confirmed";
+                    return "not confirmed";
+                }
             }
+            finally {
+                try
+                {
+                    dout.close();
 
+                }catch(Exception e)
+                {
+                    System.out.println("h");
+                }
+                try
+                {
+                    din.close();
+                }catch(Exception e){
+                    System.out.println("h");
+                }
+                socket.close();
+
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
             return "not confirmed";
+
         }
 
 

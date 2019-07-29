@@ -32,17 +32,19 @@ public class LoginActivity extends AppCompatActivity{
 
                 //executing!!!!
                 new SendTask().execute(username, password);
-                SendTask send = new SendTask();
-                if (send.doInBackground(username,password) == "confirmed")
-                {
-                    Intent i = new Intent(view.getContext(), MainActivity.class);
-                    startActivity(i);
-                }
-                else
-                {
-                    Intent i = new Intent(view.getContext(), LoginActivity.class);
-                    startActivity(i);
-                }
+//                SendTask send = new SendTask();
+//                if (send.doInBackground(username,password) == "confirmed")
+//                {
+//                    Intent i = new Intent(view.getContext(), MainActivity.class);
+//                    System.out.println("confirmed");
+//                    startActivity(i);
+//                }
+//                else
+//                {
+//                    Intent i = new Intent(view.getContext(), LoginActivity.class);
+//                    startActivity(i);
+//                    System.out.println("not confirmed");
+//                }
 
 
 
