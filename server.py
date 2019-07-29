@@ -14,35 +14,38 @@ import paypalrestsdk
 
 print("yoooo")
 import socket
-i = 0
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#setting the server
-HOST_NAME = '0.0.0.0'
-PORT = 8888
-print("yoooo")
-server_socket.bind(("0.0.0.0", 12345))
-print("yoooo")
-server_socket.listen(12)
-print("yoooo")
-server_name = "Language For Two"
-name = "not yet defined!"
-while(i<1):
-    print("heyyyy")
-    client_socket, adress = server_socket.accept()
-    print("heyyyy")
-    data = client_socket.recv(1024)
-    print(data)
-    data_len = len(data)
-    students = query_students()
-    username = data.split(",")[0]
-    password = data.split(",")[-1]
-    response = "not confirmed"
-    for student in students:
-        if student.username == username:
-            if student.password == password:
-                response = "confirmed"
+def main():
+    i = 0
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #setting the server
+    HOST_NAME = '0.0.0.0'
+    PORT = 8888
+    print("yoooo")
+    server_socket.bind(("0.0.0.0", 12345))
+    print("yoooo")
+    server_socket.listen(12)
+    print("yoooo")
+    server_name = "Language For Two"
+    name = "not yet defined!"
+    while(i<1):
+        print("heyyyy")
+        client_socket, adress = server_socket.accept()
+        print("heyyyy")
+        data = client_socket.recv(1024)
+        print(data)
+        data_len = len(data)
+        students = query_students()
+        username = data.split(",")[0]
+        password = data.split(",")[-1]
+        response = "not confirmed"
+        for student in students:
+            if student.username == username:
+                if student.password == password:
+                    response = "confirmed"
 
-    client_socket.send(response)
+        client_socket.send(response)
 
-server_socket.close()
-client_socket.close()
+    server_socket.close()
+    client_socket.close()
+if __name__ == '__main__':
+    main()
