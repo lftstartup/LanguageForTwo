@@ -1,13 +1,12 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, jsonify, url_for, session as login_session
 from werkzeug.utils import secure_filename
 import os
-from database import create_student, create_teacher, query_teacher_username, query_student_username, query_teachers, query_students
-from database import create_quizes, get_quizes, get_arab_quizes, get_hebrew_quizes, get_quizes_by_owner, query_arab_teachers, query_hebrew_teachers
-from database import query_teacher_id, create_post, query_posts, query_posts_teacher, create_course, query_courses, query_courses_teacher
-from database import query_course_id, get_amount_buyers_id, update_buyers, update_teacher_buyers, update_teacher_courses
-from database import query_teacher_email, query_student_email, query_courses_level, add_advertiser, query_advertisers, get_rating_teacher, update_rating
-from database import add_online, remove_online, get_online
-from database import *
+# from database import create_student, create_teacher, query_teacher_username, query_student_username, query_teachers, query_students
+# from database import create_quizes, get_quizes, get_arab_quizes, get_hebrew_quizes, get_quizes_by_owner, query_arab_teachers, query_hebrew_teachers
+# from database import query_teacher_id, create_post, query_posts, query_posts_teacher, create_course, query_courses, query_courses_teacher
+# from database import query_course_id, get_amount_buyers_id, update_buyers, update_teacher_buyers, update_teacher_courses
+# from database import query_teacher_email, query_student_email, query_courses_level, add_advertiser, query_advertisers, get_rating_teacher, update_rating
+# from database import add_online, remove_online, get_online
+# from database import *
 from flask_mail import Mail, Message
 import random
 import paypalrestsdk
@@ -34,14 +33,14 @@ def main():
         data = client_socket.recv(1024)
         print(data)
         data_len = len(data)
-        students = query_students()
+        # students = query_students()
         username = data.split(",")[0]
         password = data.split(",")[-1]
         response = "not confirmed"
-        for student in students:
-            if student.username == username:
-                if student.password == password:
-                    response = "confirmed"
+        # for student in students:
+        #     if student.username == username:
+        #         if student.password == password:
+        #             response = "confirmed"
 
         client_socket.send(response)
 
