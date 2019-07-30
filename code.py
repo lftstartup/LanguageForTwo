@@ -1,4 +1,4 @@
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
 import os
 # from database import create_student, create_teacher, query_teacher_username, query_student_username, query_teachers, query_students
 # from database import create_quizes, get_quizes, get_arab_quizes, get_hebrew_quizes, get_quizes_by_owner, query_arab_teachers, query_hebrew_teachers
@@ -7,7 +7,7 @@ import os
 # from database import query_teacher_email, query_student_email, query_courses_level, add_advertiser, query_advertisers, get_rating_teacher, update_rating
 # from database import add_online, remove_online, get_online
 # from database import *
-from flask_mail import Mail, Message
+# from flask_mail import Mail, Message
 import random
 import paypalrestsdk
 
