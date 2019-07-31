@@ -23,7 +23,7 @@ public class SendTask extends AsyncTask<String, String, String>
         String password = args[1];
         try {
             System.out.println("first line");
-            Socket socket = new Socket("52.16.211.175", 12345);
+            Socket socket = new Socket("52.209.151.97", 12345);
             System.out.println("socket creating");
             DataOutputStream dout = new DataOutputStream(socket.getOutputStream());
             DataInputStream din = new DataInputStream(socket.getInputStream());
