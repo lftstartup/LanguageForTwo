@@ -10,9 +10,12 @@ import android.view.*;
 import android.widget.Button;
 import java.net.Socket;
 import android.os.AsyncTask;
+import android.app.Activity;
+import android.widget.Toast;
 
 public class SendTask extends AsyncTask<String, String, String>
 {
+    private Activity activity;
 
     protected String doInBackground(String... args)
     {
@@ -20,7 +23,7 @@ public class SendTask extends AsyncTask<String, String, String>
         String password = args[1];
         try {
             System.out.println("first line");
-            Socket socket = new Socket("127.0.0.1", 12345);
+            Socket socket = new Socket("52.16.211.175", 12345);
             System.out.println("socket creating");
             DataOutputStream dout = new DataOutputStream(socket.getOutputStream());
             DataInputStream din = new DataInputStream(socket.getInputStream());
@@ -64,6 +67,25 @@ public class SendTask extends AsyncTask<String, String, String>
 
         }
 
+
+
+    }
+    protected void onPostExecute(String result) {
+
+        if(result.equals("confirmed"))
+        {
+            Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
+
+            activity.startActivity(new Intent(activity, MainActivity.class));
+            System.out.println("confirmed");
+        }
+        else
+        {
+            Toast.makeText(activity, result, Toast.LENGTH_LONG).show();
+
+            activity.startActivity(new Intent(activity, LoginActivity.class));
+            System.out.println("not confirmed");
+        }
 
 
     }

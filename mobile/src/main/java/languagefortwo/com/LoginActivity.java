@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 
 public class LoginActivity extends AppCompatActivity{
 
+
     private Button homeButton = null;
     String username = "noam1";
     String password = "xzaq1234";
@@ -45,8 +46,8 @@ public class LoginActivity extends AppCompatActivity{
 //                    startActivity(i);
 //                    System.out.println("not confirmed");
 //                }
-
-
+//                Intent i = new Intent(view.getContext(), MainActivity.class);
+//                startActivity(i);
 
 
 
