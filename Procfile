@@ -1,1 +1,1 @@
-web: python code.py $PORT
+worker: python code.py $PORT
