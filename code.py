@@ -20,8 +20,7 @@ def main():
     HOST_NAME = '0.0.0.0'
     PORT = 8888
     print("yoooo")
-    adress1 = socket.gethostbyname("https://lftserver.herokuapp.com")
-    server_socket.bind((adress1, 12345))
+    server_socket.bind(('0.0.0.0', 12345))
     print("yoooo")
     server_socket.listen(12)
     print("yoooo")
